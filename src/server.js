@@ -3,8 +3,9 @@ import pino from 'pino-http';
 import cors from 'cors';
 // import dotenv from "dotenv";
 import { getEnvVar } from './utils/getEnvVar.js';
-import studentsRouter from './routers/students.js'; // Імпортуємо роутер
-// Імпортуємо middleware
+// import studentsRouter from './routers/students.js'; // Імпортуємо роутер
+import router from './routers/index.js';
+// / Імпортуємо middleware
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 
@@ -35,7 +36,7 @@ export const startServer = () => {
     });
   });
 
-  app.use(studentsRouter); // Додаємо роутер до app як middleware
+  app.use(router); // Додаємо роутер до app як middleware
 
   // app.get('/students', async (req, res) => {
   //   const students = await getAllStudents();

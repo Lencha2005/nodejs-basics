@@ -12,15 +12,16 @@ export const createStudentSchema = Joi.object({
     gender: Joi.string().valid('male', 'female', 'other').required(),
     avgMark: Joi.number().min(2).max(12).required(),
     onDuty: Joi.boolean(),
+    // parentId: Joi.
   });
 
-  const dataToValidate = {
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    age: 12,
-    gender: 'male',
-    avgMark: 10.2,
-  };
+  // const dataToValidate = {
+  //   name: 'John Doe',
+  //   email: 'john.doe@example.com',
+  //   age: 12,
+  //   gender: 'male',
+  //   avgMark: 10.2,
+  // };
   
 //   
 export const updateStudentSchema = Joi.object({
