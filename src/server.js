@@ -8,6 +8,7 @@ import router from './routers/index.js';
 // / Імпортуємо middleware
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
+import { UPLOAD_DIR } from './constants/index.js';
 
 // dotenv.config();
 
@@ -68,7 +69,8 @@ export const startServer = () => {
   //   res.status(404).json({
   //     message: 'Not found',
   //   });
-  // });
+  // });`npm run dev
+  
 
   app.use('*', notFoundHandler);
 
@@ -80,6 +82,8 @@ export const startServer = () => {
   // });
 
   app.use(errorHandler);
+
+  app.use('/uploads', express.static(UPLOAD_DIR));
 
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
